@@ -14,6 +14,7 @@ static class PreloadComponent
     public static EventsContainer events;
     public static GameOver gameOver;
     public static ResetPickablesData resetPD;
+    public static SoundManager soundManager;
     
     static PreloadComponent()
     {
@@ -21,6 +22,10 @@ static class PreloadComponent
         events = (EventsContainer)SafeComponent(g, "EventsContainer");
         gameOver = (GameOver)SafeComponent(g, "GameOver");
         resetPD = (ResetPickablesData)SafeComponent(g, "ResetPickablesData");
+
+        //  サウンドマネージャーを初期化
+        GameObject sound = SafeFind("SoundManager");
+        soundManager = (SoundManager)SafeComponent(sound, "SoundManager");
     }
 
     private static GameObject SafeFind(string s)

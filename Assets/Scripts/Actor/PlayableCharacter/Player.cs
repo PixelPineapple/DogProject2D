@@ -13,23 +13,29 @@ using UnityEngine.SceneManagement;
 [RequireComponent (typeof (CharacterController2D))]
 public class Player : MonoBehaviour {
 
-    #region Singleton
-    public static Player _instance;
-    private void MakeSingleton()
+    public enum PlayerCondition
     {
-        if (_instance != null)
+        CONTROLLABLE = 0,
+        ISTALKING = 1,
+        LOOKINVENTORY = 2
+    }
+
+    private PlayerCondition pCondition;
+    public PlayerCondition PCondition
+    {
+        get
         {
-            Destroy(gameObject);
+            return pCondition;
         }
-        else
+
+        set
         {
-            _instance = this;
+            pCondition = value;
         }
     }
-    #endregion
 
     float moveSpeed = 2f;
-
+    
     CharacterController2D controller;
     public CharacterController2D Controller
     {
@@ -42,23 +48,13 @@ public class Player : MonoBehaviour {
     
     Animator anim;
     
-    public PickablesData blueLantern;
-    
-    private bool isControllable; // プレイヤは現在入力を受けるか？
-    public bool IsControllable
-    {
-        get
-        {
-            return isControllable;
-        }
-    }
+    public PickablesData blueLantern; // 青い灯籠を持ってるのか？
 
     private void Awake()
     {
-        MakeSingleton();
         anim = GetComponent<Animator>();
         controller = GetComponent<CharacterController2D>();
-        isControllable = true;
+        PCondition = PlayerCondition.CONTROLLABLE;
     }
 
     private void OnEnable()
@@ -106,12 +102,9 @@ public class Player : MonoBehaviour {
         anim.SetLayerWeight(1, 1);
     }
 
-    /// <summary>
-    /// プレーヤーを制御不能にするか、再び制御可能にする
-    /// </summary>
-    public void FlipIsControllable()
+    public void PlayCondition(int value)
     {
-        isControllable = !isControllable;
-        Debug.Log("Is Controllable : " + isControllable);
+        pCondition = (PlayerCondition) value;
     }
+
 }

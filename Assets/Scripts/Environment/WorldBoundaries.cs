@@ -14,10 +14,11 @@ public class WorldBoundaries : MonoBehaviour {
     private float maxY;
 
     // Update is called once per frame
-	void Update () {
-        Player._instance.transform.position = new Vector3(
-            Mathf.Clamp(Player._instance.transform.position.x, minX, maxX),
-            Mathf.Clamp(Player._instance.transform.position.y, minY, maxY),
-            0);
+	void Update ()
+    {
+        //Player._instance.transform.position = new Vector3(
+        //    Mathf.Clamp(Player._instance.transform.position.x, minX, maxX),
+        //    Mathf.Clamp(Player._instance.transform.position.y, minY, maxY),
+        //    0);
 	}
 }

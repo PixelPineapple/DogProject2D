@@ -6,9 +6,11 @@ public class Pickables : MonoBehaviour
 {
     public PickablesData pickablesData;
 
+    public bool isDestroyOnPickUp;
+
     public void Invoked()
     {
         pickablesData.isPicked = true;
-        Destroy(gameObject);
+        if (isDestroyOnPickUp) Destroy(gameObject);
     }
 }

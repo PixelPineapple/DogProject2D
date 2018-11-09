@@ -30,15 +30,26 @@ public class OpenInventory : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-		if (inventoryPanel != null && Input.GetKeyDown(buttonToOpen) &&
-            gameObject.GetComponent<Player>().IsControllable)
+        if (inventoryPanel != null && Input.GetKeyDown(buttonToOpen))
         {
-            isOpen = !isOpen;
+            if (gameObject.GetComponent<Player>().PCondition == Player.PlayerCondition.CONTROLLABLE && !isOpen) // インベントリが開いていない
+            {
+                // インベントリを開く
+                isOpen = true;
+                // プレイヤの動きを止める
+                PreloadComponent.events.playerisOpeningInventory.Raise();
+            }
+            else if (gameObject.GetComponent<Player>().PCondition == Player.PlayerCondition.LOOKINVENTORY && isOpen) // インベントリが開いている
+            {
+                // インベントリを閉める
+                isOpen = false;
+                // キャラの動きを持続する
+                PreloadComponent.events.playerIsControllable.Raise();
+            }
             updateImage.ChangeImage(isOpen); // 鞄の画像を更新する
             buttonAPressed.CurrentlyOpened(isOpen); // A-ボタンの画像を更新する
             inventoryPanel.SetActive(isOpen);
             updateInventory.Raise();
-
         }
 	}
 }

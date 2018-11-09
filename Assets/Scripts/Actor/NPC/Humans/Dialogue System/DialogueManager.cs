@@ -145,6 +145,6 @@ public class DialogueManager : MonoBehaviour {
         gameObject.GetComponent<Animator>().SetBool("IsTalking", false);
         isTalking = false;
         // プレイヤは入力が得られるように。
-        PreloadComponent.events.isPlayerControllable.Raise();
+        PreloadComponent.events.playerIsControllable.Raise();
     }
 } // !class

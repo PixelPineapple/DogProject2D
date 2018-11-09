@@ -16,8 +16,13 @@ public class PlayerInput : MonoBehaviour {
     Player player;
     Animator anim;
 
-	// Use this for initialization
-	void Start () {
+    #region Walking Sound Effects
+    public AudioClip walk_SE;
+    private bool walkingSEPlaying;
+    #endregion
+
+    // Use this for initialization
+    void Start () {
         player = GetComponent<Player>();
         anim = GetComponent<Animator>();
         
@@ -29,7 +34,7 @@ public class PlayerInput : MonoBehaviour {
 	void Update () {
         Vector2 directionalInput = Vector2.zero;
         // プレイヤの移動操作
-        if (player.IsControllable) // 現在プレイヤは動かせられるか？
+        if (player.PCondition == Player.PlayerCondition.CONTROLLABLE) // 現在プレイヤは動かせられるか？
         {
             directionalInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         }
@@ -45,8 +50,27 @@ public class PlayerInput : MonoBehaviour {
     {
         if (speed == 0) {
             anim.SetBool("isWalking", false);
+            // サウンドエフェクトを終了
+            walkingSEPlaying = false;
+            PreloadComponent.soundManager.efxSource.loop = false;
+            PreloadComponent.soundManager.efxSource.Stop();
             return;
         }
+
+        // 歩くのサウンドエフェクトを設定
+        WalkingSound(speed);
+
         anim.SetBool("isWalking", true);
+    }
+
+    void WalkingSound(float speed)
+    {
+        if (speed != 0 && !walkingSEPlaying)
+        {
+            PreloadComponent.soundManager.efxSource.loop = true;
+            PreloadComponent.soundManager.RandomizeSFX(walk_SE);
+            PreloadComponent.soundManager.efxSource.volume = 0.05f;
+            walkingSEPlaying = true;
+        }
     }
 } // class

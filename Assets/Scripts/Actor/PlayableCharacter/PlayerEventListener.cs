@@ -23,7 +23,7 @@ public class PlayerEventListener : MonoBehaviour {
 
     void FoundInteraction(GameObject other)
     {
-        if (player.IsControllable)
+        if (player.PCondition == Player.PlayerCondition.CONTROLLABLE)
         {
             if (Input.GetKeyDown(KeyCode.X))
             {
@@ -42,12 +42,12 @@ public class PlayerEventListener : MonoBehaviour {
                         other.GetComponent<GameEventListener>().enabled = true;
                         PreloadComponent.events.humanInteraction.Raise();
                         // プレイヤ入力を止める
-                        PreloadComponent.events.isPlayerControllable.Raise();
+                        PreloadComponent.events.playerIsTalking.Raise();
                         break;
                     case "Door":
                         if (player.blueLantern.isPicked)
                         {
-                            other.GetComponent<Door>().Enter();
+                            other.GetComponent<SceneTransition>().LoadLevel();
                         }
                         else
                         {

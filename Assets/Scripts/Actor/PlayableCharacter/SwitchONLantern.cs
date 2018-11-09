@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof (Light))]
 public class SwitchONLantern : MonoBehaviour {
     
-    private Light light;
+    private new Light light;
 
     private void Awake()
     {

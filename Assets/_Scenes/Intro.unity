@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 1, g: 1, b: 1, a: 1}
+  m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
   m_AmbientEquatorColor: {r: 0, g: 0, b: 0, a: 1}
   m_AmbientGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_AmbientIntensity: 1
@@ -2029,6 +2029,7 @@ GameObject:
   - component: {fileID: 969672909}
   - component: {fileID: 969672911}
   - component: {fileID: 969672910}
+  - component: {fileID: 969672912}
   m_Layer: 9
   m_Name: Stone_Small (14)
   m_TagString: Untagged
@@ -2106,6 +2107,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &969672912
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 969672908}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.21, y: 0.54}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.62831736, y: 0.22747163}
+    oldSize: {x: 4, y: 4}
+    newSize: {x: 4, y: 4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0.72
 --- !u!1 &1046802322
 GameObject:
   m_ObjectHideFlags: 0
@@ -4114,7 +4140,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.52, y: 0.64}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4125,8 +4151,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.15, y: 5.93}
-  m_EdgeRadius: 0
+  m_Size: {x: 1.89, y: 5.93}
+  m_EdgeRadius: 0.49
 --- !u!1 &1739408574
 GameObject:
   m_ObjectHideFlags: 0
@@ -4258,6 +4284,11 @@ Prefab:
       propertyPath: xButton
       value: 
       objectReference: {fileID: 2002637994}
+    - target: {fileID: 114213467718293278, guid: c2e52eb540274214abaf25780979610d,
+        type: 2}
+      propertyPath: amplitude
+      value: 1.76
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2e52eb540274214abaf25780979610d, type: 2}
   m_IsPrefabAsset: 0

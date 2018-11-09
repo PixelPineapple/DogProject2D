@@ -14,6 +14,7 @@ public class LoadPreloadScene {
 
 #if UNITY_EDITOR
     public static int otherScene = -2;
+    public static bool alreadyLoaded = false;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     static void InitLoadingScene()

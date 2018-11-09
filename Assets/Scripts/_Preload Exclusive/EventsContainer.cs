@@ -16,7 +16,9 @@ public class EventsContainer : MonoBehaviour {
     public GameEvent pickingLanternEvent;
     public GameEvent foundPickableEvent;
     public GameEvent humanInteraction;
-    public GameEvent isPlayerControllable;
+    public GameEvent playerIsTalking;
+    public GameEvent playerisOpeningInventory;
+    public GameEvent playerIsControllable;
     #endregion
 
     #region Mostly Used by Enemy

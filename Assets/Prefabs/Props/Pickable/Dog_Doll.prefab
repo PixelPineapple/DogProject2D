@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e1ca3a4b95ca8a49b671e744c9b80ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xButton: {fileID: 1489384083274846, guid: c91f6bf63d212d640a236f8cf4b25d40, type: 2}
+  xButton: {fileID: 0}
 --- !u!114 &114360267653741482
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -159,7 +159,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickablesData: {fileID: 11400000, guid: c732ba06a338755478d38e593daf3274, type: 2}
+  acquiredPanel: {fileID: 0}
   isDestroyOnPickUp: 1
+  receivedClip: {fileID: 8300000, guid: 197477b9a4f34fd44a6a991b5048dbf8, type: 3}
+  itemPickedUpSprite: {fileID: 0}
 --- !u!114 &114810722514040926
 MonoBehaviour:
   m_ObjectHideFlags: 1

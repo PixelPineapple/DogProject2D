@@ -13,8 +13,10 @@ public class SoundManager : MonoBehaviour {
 
     public AudioSource musicSource;
     public AudioSource efxSource;
+    public AudioSource followUpEfxSource;
     public float lowPitchRange = .95f;
     public float highPitchRange = 1.05f;
+    public float highVolume = 0.5f;
     
     // シングルサウンドクリップをプレイ
     public void PlaySingle(AudioClip clip)
@@ -34,5 +36,37 @@ public class SoundManager : MonoBehaviour {
         efxSource.clip = clips[randomIndex];
 
         efxSource.Play();
+    }
+    
+    public void PlayOnceEFX(AudioClip firstClip, AudioClip secondClip = null)
+    {
+        efxSource.volume = highVolume;
+
+        // 一番目のefxAudioを設定して、起動させる。
+        efxSource.clip = firstClip;
+        efxSource.Play();
+
+        // 二番目のefxAudioがあれば、設定する
+        if (secondClip != null)
+        {
+            followUpEfxSource.clip = secondClip;
+            Invoke("PlayFollowUpClip", firstClip.length);
+        }
+
+        StartCoroutine(loweringSounds());
+    }
+    
+    private void PlayFollowUpClip()
+    {
+        followUpEfxSource.Play();
+    }
+
+
+    IEnumerator loweringSounds()
+    {
+        yield return new WaitForSeconds(1.0f);
+        PreloadComponent.soundManager.efxSource.volume = 0.4f;
+        yield return new WaitForSeconds(1.0f);
+        PreloadComponent.soundManager.efxSource.volume = 0.3f;
     }
 }

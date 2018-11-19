@@ -446,7 +446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveform: 5
   baseStart: 1
-  amplitude: 1
+  amplitude: 1.76
   phase: 0
   frequency: 0.1
 --- !u!114 &114499361096354972
@@ -473,7 +473,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickablesData: {fileID: 11400000, guid: d74a1fbc382376e4b8d7f3af2d87dc06, type: 2}
+  acquiredPanel: {fileID: 0}
   isDestroyOnPickUp: 1
+  receivedClip: {fileID: 8300000, guid: 7a23f2f2247624245b5a04a25557cb92, type: 3}
+  followUpClip: {fileID: 8300000, guid: deef8f80b56312240a7bb86a86802e2d, type: 3}
+  itemPickedUpSprite: {fileID: 0}
 --- !u!212 &212014319363448306
 SpriteRenderer:
   m_ObjectHideFlags: 1

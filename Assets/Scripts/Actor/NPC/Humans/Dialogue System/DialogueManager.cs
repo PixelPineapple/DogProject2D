@@ -13,6 +13,7 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour {
     
+    // 人間の顔の写真
     [SerializeField]
     private Image humanPortrait;
     public Image HumanPortrait
@@ -21,6 +22,7 @@ public class DialogueManager : MonoBehaviour {
         set { humanPortrait = value; }
     }
 
+    // 人間名
     [SerializeField]
     private new TMPro.TextMeshProUGUI name;
     public TMPro.TextMeshProUGUI Name
@@ -29,6 +31,7 @@ public class DialogueManager : MonoBehaviour {
         set { name = value; }
     }
 
+    // 人間の対話
     [SerializeField]
     private TMPro.TextMeshProUGUI dialogue;
     public TMPro.TextMeshProUGUI Dialogue
@@ -37,6 +40,7 @@ public class DialogueManager : MonoBehaviour {
         set { dialogue = value; }
     }
 
+    // 犬が探している人間ですか？
     private bool isCorrectHuman;
     public bool IsCorrectHuman
     {
@@ -44,6 +48,7 @@ public class DialogueManager : MonoBehaviour {
         set { isCorrectHuman = value; }
     }
 
+    // 
     private Queue<string> dialogueQueue;
 
     /// <summary>
@@ -106,7 +111,7 @@ public class DialogueManager : MonoBehaviour {
 
     void GiveOrLeave()
     {
-        dialogue.text = "will you give " + name.text + " the light ?";
+        dialogue.text = "人生の本質を" + name.text + "にあげようか?";
 
         StartCoroutine(WaitForKeyPressed());
     }

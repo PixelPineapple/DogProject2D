@@ -62,6 +62,7 @@ public class WaveLighting : MonoBehaviour {
                 else
                     y = -4.0f * x + 3.0f;
                 break;
+
             case WaveForm.square:
                 if (x < 0.5f)
                     y = 1.0f;

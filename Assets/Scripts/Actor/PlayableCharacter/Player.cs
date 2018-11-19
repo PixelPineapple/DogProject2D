@@ -2,7 +2,7 @@
  * 制作日 : 2018年09月26日
  * 制作者：シスワントレサ
  * 内容　：プレイヤの状態を管理するクラス
- * 最後の更新：2018年09月29日
+ * 最後の更新：2018年11月10日
  * ----------------------------------------------- */
 
 using System.Collections;
@@ -13,27 +13,22 @@ using UnityEngine.SceneManagement;
 [RequireComponent (typeof (CharacterController2D))]
 public class Player : MonoBehaviour {
 
+    #region Player Condition
     public enum PlayerCondition
     {
         CONTROLLABLE = 0,
         ISTALKING = 1,
         LOOKINVENTORY = 2
     }
-
     private PlayerCondition pCondition;
     public PlayerCondition PCondition
     {
-        get
-        {
-            return pCondition;
-        }
-
-        set
-        {
-            pCondition = value;
-        }
+        get { return pCondition; }
+        set { pCondition = value; }
     }
+    #endregion
 
+    #region Player Movement
     float moveSpeed = 2f;
     
     CharacterController2D controller;
@@ -45,7 +40,8 @@ public class Player : MonoBehaviour {
     Vector3 velocity;
     Vector2 directionalInput;
     float velocitySmoothing;
-    
+    #endregion
+
     Animator anim;
     
     public PickablesData blueLantern; // 青い灯籠を持ってるのか？

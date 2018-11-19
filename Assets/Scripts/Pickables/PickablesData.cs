@@ -14,8 +14,11 @@ public class PickablesData : ScriptableObject {
 
     #region description
     public new string name;
+    public string kanjiName;
+    [TextArea (3, 10)]
     public string description;
     public Sprite artwork;
+    public Sprite pixelArts;
     #endregion
 
         #region isPickedUp

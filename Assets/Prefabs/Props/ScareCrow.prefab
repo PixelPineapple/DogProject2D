@@ -11,6 +11,24 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1874389675892924}
   m_IsPrefabAsset: 1
+--- !u!1 &1587391235575350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4587099162940748}
+  - component: {fileID: 50097931389928440}
+  - component: {fileID: 58923218161213562}
+  - component: {fileID: 114057208974518586}
+  m_Layer: 0
+  m_Name: X-Button Notification
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1637087650616418
 GameObject:
   m_ObjectHideFlags: 0
@@ -21,9 +39,12 @@ GameObject:
   - component: {fileID: 4960541567388202}
   - component: {fileID: 212641141745495270}
   - component: {fileID: 114346809920545278}
-  m_Layer: 0
+  - component: {fileID: 114067311616935062}
+  - component: {fileID: 114565458794742246}
+  - component: {fileID: 61014734021949462}
+  m_Layer: 10
   m_Name: Crow_Band
-  m_TagString: Untagged
+  m_TagString: Pickable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,7 +60,6 @@ GameObject:
   - component: {fileID: 212351915054756934}
   - component: {fileID: 114225261777806526}
   - component: {fileID: 95618096640264658}
-  - component: {fileID: 61824566427710558}
   m_Layer: 9
   m_Name: ScareCrow
   m_TagString: Pickable
@@ -58,8 +78,22 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children:
   - {fileID: 4960541567388202}
+  - {fileID: 4587099162940748}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4587099162940748
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1587391235575350}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4238557153391012}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4960541567388202
 Transform:
@@ -74,12 +108,32 @@ Transform:
   m_Father: {fileID: 4238557153391012}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61824566427710558
-BoxCollider2D:
+--- !u!50 &50097931389928440
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1874389675892924}
+  m_GameObject: {fileID: 1587391235575350}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &58923218161213562
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1587391235575350}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -87,9 +141,24 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!61 &61014734021949462
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1637087650616418}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 2.52, y: 0.6}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.7498529, y: 0.034097526}
+    pivot: {x: 0.4781278, y: -0.5075823}
     oldSize: {x: 4, y: 4}
     newSize: {x: 4, y: 4}
     adaptiveTilingThreshold: 0.5
@@ -97,7 +166,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.37, y: 1.33}
   m_EdgeRadius: 0
 --- !u!95 &95618096640264658
 Animator:
@@ -117,6 +186,46 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114057208974518586
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1587391235575350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e1ca3a4b95ca8a49b671e744c9b80ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xButton: {fileID: 0}
+--- !u!114 &114067311616935062
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1637087650616418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a258462e270eff4993d3ee104a09153, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 18816abf683eb314f99f4a4a20713c9d, type: 2}
+  events:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114565458794742246}
+        m_MethodName: Invoked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114225261777806526
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -139,6 +248,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7df7473cce6d084ab2d7f0480a70290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114565458794742246
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1637087650616418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9abc3d61413c1fc458aa4101026bee58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickablesData: {fileID: 11400000, guid: 8197b2ef960819d45a591f22040cdf39, type: 2}
+  acquiredPanel: {fileID: 0}
+  isDestroyOnPickUp: 0
+  receivedClip: {fileID: 8300000, guid: 197477b9a4f34fd44a6a991b5048dbf8, type: 3}
+  itemPickedUpSprite: {fileID: 21300000, guid: 0055a35ff9200ea4e9457b84240823f0, type: 3}
 --- !u!212 &212351915054756934
 SpriteRenderer:
   m_ObjectHideFlags: 1

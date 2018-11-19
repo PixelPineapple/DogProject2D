@@ -1,17 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 966cd9369f574bc488aa9f10a1dc18d4, type: 3}
-  m_Name: Lantern
-  m_EditorClassIdentifier: 
-  name: Blue Lantern
-  description: 
-  artwork: {fileID: 21300000, guid: 490d35e1bcef956468e7fe33f4c37546, type: 3}
-  isPicked: 0
+version https://git-lfs.github.com/spec/v1
+oid sha256:6805d688cb1d7b74b67183c66ce69a32dd9a8b77793696ab2f210a433fda030b
+size 777

@@ -1,17 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 966cd9369f574bc488aa9f10a1dc18d4, type: 3}
-  m_Name: Ribbon
-  m_EditorClassIdentifier: 
-  name: Pink Ribbon
-  description: Looks cute on me.
-  artwork: {fileID: 21300000, guid: 58ed416d47bef2e458601b1851fe91d1, type: 3}
-  isPicked: 0
+version https://git-lfs.github.com/spec/v1
+oid sha256:a48dcb0b4791b1c7aeba2ffc938b2f176d5c3ba4740067b01a09abdff6a048ce
+size 750

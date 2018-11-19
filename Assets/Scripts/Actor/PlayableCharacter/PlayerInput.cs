@@ -2,7 +2,7 @@
  * 制作日 : 2018年09月26日
  * 制作者：シスワントレサ
  * 内容　：プレイヤがが登録られたインプット
- * 最後の更新：2018年09月29日
+ * 最後の更新：2018年11月09日
  * ----------------------------------------------- */
 
 using System.Collections;
@@ -53,7 +53,6 @@ public class PlayerInput : MonoBehaviour {
             // サウンドエフェクトを終了
             walkingSEPlaying = false;
             PreloadComponent.soundManager.efxSource.loop = false;
-            PreloadComponent.soundManager.efxSource.Stop();
             return;
         }
 
@@ -69,7 +68,6 @@ public class PlayerInput : MonoBehaviour {
         {
             PreloadComponent.soundManager.efxSource.loop = true;
             PreloadComponent.soundManager.RandomizeSFX(walk_SE);
-            PreloadComponent.soundManager.efxSource.volume = 0.05f;
             walkingSEPlaying = true;
         }
     }

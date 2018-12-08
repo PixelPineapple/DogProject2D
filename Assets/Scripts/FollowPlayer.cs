@@ -1,4 +1,13 @@
-﻿using System.Collections;
+﻿/*---------------------------------------------------
+ * 制作日 : 2018年09月26日
+ * 制作者：シスワントレサ
+ * 内容　：プレイヤを追いかけるカメラ
+ * 
+ * !!!! 使わない !!!!
+ * 
+ * ----------------------------------------------- */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

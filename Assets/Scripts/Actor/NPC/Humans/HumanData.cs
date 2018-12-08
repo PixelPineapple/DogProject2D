@@ -11,11 +11,14 @@ using UnityEngine;
 
 public class HumanData : MonoBehaviour {
 
+    // 人間のテンプレートデータ
     public HumanTemplate data;
 
+    // ダイアログパネルUI
     [SerializeField]
     private GameObject dialoguePanel;
 
+    // 対話している中の人間のデータがダイアログUIに渡す
     public void CurrentlyInteracting()
     {
         dialoguePanel.GetComponent<DialogueManager>().IsTalking = true;
@@ -28,4 +31,4 @@ public class HumanData : MonoBehaviour {
         // Set to false to prevent wrong display in the GUI
         gameObject.GetComponent<GameEventListener>().enabled = false;
     }
-}
+}   // !_class

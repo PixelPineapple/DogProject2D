@@ -1,7 +1,7 @@
 ﻿/*---------------------------------------------------
  * 制作日 : 2018年10月06日
  * 制作者：シスワントレサ
- * 内容　：どこのシーンからでもPreloadシーンを最初に呼び出されるように。
+ * 内容　：どこのシーンからプレイしてもPreloadシーンを最初に呼び出される
  * 最後の更新：2018年10月06日
  * ----------------------------------------------- */
 
@@ -14,14 +14,13 @@ public class LoadPreloadScene {
 
 #if UNITY_EDITOR
     public static int otherScene = -2;
-    public static bool alreadyLoaded = false;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     static void InitLoadingScene()
     {
         Debug.Log("InitLoadingScene()");
         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
-        if (sceneIndex == 0) return; // ここは_Preloadシーン
+        if (sceneIndex == 0) return; // ここ[0]は_Preloadシーン　！！！重要！！！
 
         Debug.Log("Loading _preload scene");
         otherScene = sceneIndex;
@@ -29,5 +28,5 @@ public class LoadPreloadScene {
         SceneManager.LoadScene(0);
     }
 #endif
-}
+}   // !_class
 

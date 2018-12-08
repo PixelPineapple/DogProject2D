@@ -2,8 +2,10 @@
  * 制作日 : 2018年09月26日
  * 制作者：シスワントレサ
  * 内容　：全体のゲームを管理するクラス
+ * 
+ *  !!!! もう使わない !!!! Singletonクラスは使わないように、Preload Sceneを使う。
  * ----------------------------------------------- */
-
+ 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +13,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
-    #region Singleton
+    #region Singleton / シングルトンクラス
     [HideInInspector]
     public static GameManager _instance;
     [SerializeField]
@@ -34,8 +36,9 @@ public class GameManager : MonoBehaviour {
     [HideInInspector]
     public PlayerPrefs playerPref;
 
-    // Use this for initialization
+    // 初期化
     void Awake() {
+        // シングルトンを生成
         MakeSingleton();
         playerPref.Reset();
     }
@@ -45,6 +48,7 @@ public class GameManager : MonoBehaviour {
         SceneManager.sceneLoaded += OnSceneChanged;
     }
 
+    // プレイヤはランタン「人生の本質」を持っているのかのストラック
     public struct PlayerPrefs
     {
         public bool isHoldingLantern;
@@ -55,10 +59,11 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    // シーンを切り替えるとき、プレイヤを生成
     public void OnSceneChanged (Scene name, LoadSceneMode mode)
     {
         Instantiate(playerPrefab);
     }
-} // class
+} // !_class 
 
 

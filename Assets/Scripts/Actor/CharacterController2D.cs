@@ -63,7 +63,7 @@ public class CharacterController2D : RaycastController {
         }
 
         transform.Translate(moveAmount); // キャラクタを移動させる
-	} // !Move
+	}
 
     /// <summary>
     /// 水平衝突判定
@@ -133,13 +133,17 @@ public class CharacterController2D : RaycastController {
 
         for (int i = 0; i < verticalRayCount; i++)
         {
+            // Raycastをどこから発射する
             Vector2 rayOrigin = (directionY == -1) ? rayCastOrigins.bottomLeft : rayCastOrigins.topLeft;
+            // いくつかのRaycastを発射する
             rayOrigin += Vector2.right * (verticalRaySpacing * i + moveAmount.x);
+            // Raycastを発射する
             RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up * directionY, rayLength, collisionMask);
 
-            // Debugging the Raycast.
+            // Raycastをデバッグ
             Debug.DrawRay(rayOrigin, Vector2.up * directionY, Color.red);
 
+            // コライダーを当たる時
             if (hit)
             {
                 moveAmount.y = (hit.distance - skinWidth) * directionY;
@@ -178,6 +182,6 @@ public class CharacterController2D : RaycastController {
             above = below = false;
             right = left = false;
         }
-    } // !CollisionInfo
+    } // !_CollisionInfo
 
-} // class
+} // !_class

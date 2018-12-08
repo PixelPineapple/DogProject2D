@@ -12,16 +12,20 @@ using UnityEngine.Events;
 
 public class GameEventListener : MonoBehaviour {
 
+    // 呼び出したいメソッドはここに登録する
     public GameEvent gameEvent;
+    // 呼び出されるエベント「メソッド」
     public UnityEvent events;
-
+    
     private void OnEnable()
     {
+        // ゲームエベントに登録
         gameEvent.RegisterEvent(this);
     }
 
     private void OnDisable()
     {
+        // 登録を解除する
         gameEvent.UnregisterEvent(this);
     }
 
@@ -30,6 +34,7 @@ public class GameEventListener : MonoBehaviour {
     /// </summary>
     public void OnEventRaised()
     {
+        // メソッドを実行する
         events.Invoke();
     }
 

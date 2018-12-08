@@ -25,7 +25,10 @@ public class ItemSelected : MonoBehaviour, ISelectHandler {
     
     public void OnSelect(BaseEventData eventData)
     {
-        itemName.text = inventoryData.kanjiName;
-        itemDesc.text = inventoryData.description;
+        if (inventoryData.isPicked)
+        {
+            itemName.text = inventoryData.kanjiName;
+            itemDesc.text = inventoryData.description;
+        }
     }
 }

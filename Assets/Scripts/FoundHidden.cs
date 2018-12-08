@@ -12,7 +12,7 @@ using UnityEngine;
 public class FoundHidden : MonoBehaviour {
 
     [SerializeField]
-    private AudioClip foundHiddenAudioClip; // Found something audioclip
+    private AudioClip foundHiddenAudioClip; // 隠れたオブジェクトや道を見つける時のEFX
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -22,7 +22,7 @@ public class FoundHidden : MonoBehaviour {
         }
     }
 
-
+    // 一回だけEFXをプレイ
     private void OnTriggerExit2D(Collider2D collision)
     {
         Destroy(gameObject);

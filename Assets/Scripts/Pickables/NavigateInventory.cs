@@ -12,10 +12,12 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class NavigateInventory : MonoBehaviour {
-
+    
+    // デフォルトに選択されたオブジェクト
     [SerializeField]
     private Selectable defaultSelectables;
 
+    // エベントシステム
     public EventSystem _eventSystem;
 
     void OnEnable ()
@@ -32,4 +34,4 @@ public class NavigateInventory : MonoBehaviour {
         _eventSystem.SetSelectedGameObject(null);
         _eventSystem.SetSelectedGameObject(defaultSelectables.gameObject);
     }
-}
+} // !_class

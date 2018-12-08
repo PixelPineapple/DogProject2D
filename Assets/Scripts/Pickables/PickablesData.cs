@@ -13,15 +13,15 @@ using UnityEngine;
 public class PickablesData : ScriptableObject {
 
     #region description
-    public new string name;
-    public string kanjiName;
+    public new string name;     // アイテム名
+    public string kanjiName;     // 漢字名
     [TextArea (3, 10)]
-    public string description;
-    public Sprite artwork;
-    public Sprite pixelArts;
+    public string description;     // アイテム説明
+    public Sprite artwork;         // アーツ 
+    public Sprite pixelArts;        // ドット絵の画像
     #endregion
 
-        #region isPickedUp
-    public bool isPicked;
+    #region isPickedUp
+    public bool isPicked;           // 獲得しましたか？
     #endregion
-}
+} // !_class

@@ -12,11 +12,12 @@ using UnityEngine;
 [RequireComponent (typeof (CircleCollider2D))]
 public class ShowXButton : MonoBehaviour {
 
-    private CircleCollider2D circleCollider;
+    private CircleCollider2D circleCollider; // 獲得できるアイテムにあるコライダー
 
     [SerializeField]
-    private GameObject xButton;
+    private GameObject xButton; //主人公にある
 
+    // 初期化
     private void Start()
     {
         circleCollider = GetComponent<CircleCollider2D>();
@@ -26,17 +27,27 @@ public class ShowXButton : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        // ✕-ボタンを表示
+        if (collision.tag == "Player" && xButton != null)
         {
             xButton.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("xButtonのゲームオブジェクトがない");
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        // ✕-ボタンを非表示
+        if (collision.tag == "Player" && xButton != null)
         {
             xButton.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("xButtonのゲームオブジェクトがない");
         }
     }
 }

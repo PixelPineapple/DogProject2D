@@ -1,8 +1,7 @@
 ﻿/*---------------------------------------------------
- * 制作日 : 2018年09月26日
+ * 制作日 : 2018年10月15日
  * 制作者：シスワントレサ
  * 内容　：インベントリパネルを開く
- * 最後の更新：2018年09月29日
  * ----------------------------------------------- */
 
 using System.Collections;
@@ -10,25 +9,32 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof (Player))]
-public class OpenInventory : MonoBehaviour {
-
+public class OpenInventory : MonoBehaviour
+{
+    // インベントリーパネル
     [SerializeField]
     private GameObject inventoryPanel;
+    // インベントリーを開いてる中
     private bool isOpen;
+    // ボタンを押したら、インベントリーが開ける
     [SerializeField]
     private KeyCode buttonToOpen;
+    // インベントリーの更新エベント
     public GameEvent updateInventory;
+    // イメージを更新するクラス
     [SerializeField]
     private UpdateImage updateImage;
+    // ボタンを押すと、インベントリーを開く
     [SerializeField]
     private ButtonAPressed buttonAPressed;
-
+    
+    // 初期化
     private void Start()
     {
         isOpen = false;
     }
 
-    // Update is called once per frame
+    // 更新
     void Update () {
         if (inventoryPanel != null && Input.GetKeyDown(buttonToOpen))
         {
@@ -52,4 +58,4 @@ public class OpenInventory : MonoBehaviour {
             updateInventory.Raise();
         }
 	}
-}
+}   // !_class

@@ -20,10 +20,11 @@ public class MusicManager : MonoBehaviour {
         if (collision.tag == "Player" &&
             PreloadComponent.soundManager.musicSource.clip != gameBGM)
         {
+            // BGMをプレイ
             Debug.Log("Entering Musicmanager");
             PreloadComponent.soundManager.musicSource.clip = gameBGM;
             PreloadComponent.soundManager.musicSource.Play();
         }
     }
 
-}
+} // !_class

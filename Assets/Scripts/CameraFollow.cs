@@ -10,7 +10,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour {
 
-    public CharacterController2D target; // What is the camera following on.
+    public CharacterController2D target; // カメラのターゲット
     public float verticalOffset;
     public float lookAheadDstX;
     public float lookSmoothTimeX;
@@ -39,9 +39,10 @@ public class CameraFollow : MonoBehaviour {
     /// </summary>
     private void LateUpdate()
     {
+        // フォーカスエリアを更新する
         focusArea.Update(target.boxCollider.bounds);
 
-        // Make the camera follows the focus area.
+        // カメラがフォーカスエリアを追いかける
         Vector2 focusPosition = focusArea.center + Vector2.up * verticalOffset;
 
         if (focusArea.velocity.x != 0)
@@ -61,16 +62,17 @@ public class CameraFollow : MonoBehaviour {
                 }
             }
         }
-
+        // スムーズにX-軸にカメラを動かせる
         currentLookAheadX = Mathf.SmoothDamp(currentLookAheadX, targetLookAheadX, ref smoothLookVelocityX, lookSmoothTimeX);
-
+        // スムーズにY-軸にカメラを動かせる
         focusPosition.y = Mathf.SmoothDamp(transform.position.y, focusPosition.y, ref smoothVelocityY, verticalSmoothTime);
         focusPosition += Vector2.right * currentLookAheadX;
+        // カメラを動かせる
         transform.position = (Vector3)focusPosition + Vector3.forward * -10;
     }
 
     /// <summary>
-    /// Draws visual debugging for focus area
+    /// フォーカスエリアのビジュアルデバッグを描画
     /// </summary>
     private void OnDrawGizmos()
     {
@@ -79,20 +81,20 @@ public class CameraFollow : MonoBehaviour {
     }
 
     /// <summary>
-    /// The focus area in the target surrounding.
+    /// ターゲットの周りの注目されるところ「フォーカスエリア」
     /// </summary>
     struct FocusArea
     {
         public Vector2 center;
-        public Vector2 velocity; // To track how far the focus are has move in the last frame.
+        public Vector2 velocity; // 最後のフレームでフォーカスエリアがどれだけ移動したかを検査
         float left, right;
         float top, bottom;
 
         /// <summary>
-        /// Constructor
+        /// コンストラクタ
         /// </summary>
-        /// <param name="targetBounds"> The rectangular collider taken from the player</param>
-        /// <param name="size">Size of the box</param>
+        /// <param name="targetBounds">プレイヤから取った長方形のコライダー</param>
+        /// <param name="size">注目されるところのサイズ</param>
         public FocusArea(Bounds targetBounds, Vector2 size)
         {
             left = targetBounds.center.x - size.x / 2;
@@ -105,12 +107,12 @@ public class CameraFollow : MonoBehaviour {
         }
 
         /// <summary>
-        /// Move the focus area along with the target.
+        /// ターゲットとともにフォーカスエリアを移動させる
         /// </summary>
         /// <param name="targetBounds"></param>
         public void Update(Bounds targetBounds)
         {
-            #region Moving along the X-axes.
+            #region X-軸に移動
             float shiftX = 0;
             if (targetBounds.min.x < left)
             {
@@ -124,7 +126,7 @@ public class CameraFollow : MonoBehaviour {
             right += shiftX;
             #endregion
 
-            #region Moving along the Y-axes.
+            #region Y-軸に移動
             float shiftY = 0;
             if (targetBounds.min.y < bottom)
             {
@@ -138,7 +140,7 @@ public class CameraFollow : MonoBehaviour {
             bottom += shiftY;
             #endregion
 
-            // Updating the center position.
+            // フォーカスエリアの中心位置を更新する
             center = new Vector2((left + right) / 2, (top + bottom) / 2);
             velocity = new Vector2(shiftX, shiftY);
         }

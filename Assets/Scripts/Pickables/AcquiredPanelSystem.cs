@@ -1,7 +1,7 @@
 ﻿/*---------------------------------------------------
  * 制作日 : 2018年11月09日
  * 制作者：シスワントレサ
- * 内容　：獲得システム管理するクラス
+ * 内容　：アイテムの獲得システムを管理するクラス
  * 最後の更新：2018年11月09日
  * ----------------------------------------------- */
 
@@ -13,15 +13,15 @@ using TMPro;
 
 public class AcquiredPanelSystem : MonoBehaviour {
 
-    private PickablesData data;
+    private PickablesData data;                 // 獲得アイテムの情報
 
     [Header("UI Components")]
     [SerializeField]
-    private GameObject pickablesInfo;
+    private GameObject pickablesInfo;       // 獲得アイテムのUI
     [SerializeField]
-    private TMP_Text itemName;
+    private TMP_Text itemName;              // アイテム名のテキスト
     [SerializeField]
-    private Image pixelSpriteImage;
+    private Image pixelSpriteImage;          // スプライトイメージ 
 
     [Header("Visible Timer")]
     public float initialTimer;
@@ -62,4 +62,4 @@ public class AcquiredPanelSystem : MonoBehaviour {
 
         pickablesInfo.SetActive(false);
     }
-}
+} // !_class

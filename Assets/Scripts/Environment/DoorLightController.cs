@@ -17,11 +17,13 @@ public class DoorLightController : MonoBehaviour {
     [SerializeField] private float desiredSpotAngle;
     [SerializeField] private float waitTime;
 
+    // 初期化
     public void Start()
     {
         thisLight = gameObject.GetComponent<Light>();
     }
 
+    // エベントをスタート
     public void StartEvent()
     {
         StartCoroutine(EnlargingSpotAngle());
@@ -36,4 +38,4 @@ public class DoorLightController : MonoBehaviour {
             yield return new WaitForSeconds(waitTime);
         }
     }
-}
+} // !_class

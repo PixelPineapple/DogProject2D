@@ -13,31 +13,32 @@ using System;
 [RequireComponent (typeof (Player))]
 public class PlayerInput : MonoBehaviour {
 
+    // プレイヤクラスの参考
     Player player;
+    // アニメーション
     Animator anim;
 
-    #region Walking Sound Effects
+    #region 歩きのEFX 
     public AudioClip walk_SE;
     private bool walkingSEPlaying;
     #endregion
 
-    // Use this for initialization
+    // 初期化
     void Start () {
         player = GetComponent<Player>();
         anim = GetComponent<Animator>();
-        
-        // pickableEventsに登録
-        //gameObject.GetComponent<CharacterController2D>().interactableEvents += FoundPickables;
     }
 	
-	// Update is called once per frame
+	// 更新
 	void Update () {
         Vector2 directionalInput = Vector2.zero;
         // プレイヤの移動操作
-        if (player.PCondition == Player.PlayerCondition.CONTROLLABLE) // 現在プレイヤは動かせられるか？
+        if (player.PCondition == Player.PlayerCondition.CONTROLLABLE) // 現在プレイヤは動かせるか？
         {
+            // プレイヤを動かせる
             directionalInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         }
+        // 動くアニメーションや音を管理
         IsWalking(directionalInput.magnitude, directionalInput.x);
         player.SetDirectionalInput(directionalInput);        
 	}
@@ -62,6 +63,7 @@ public class PlayerInput : MonoBehaviour {
         anim.SetBool("isWalking", true);
     }
 
+    // 歩きEFX
     void WalkingSound(float speed)
     {
         if (speed != 0 && !walkingSEPlaying)

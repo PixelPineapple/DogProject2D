@@ -1,7 +1,7 @@
 ﻿/*---------------------------------------------------
- * 制作日 : 2018年09月26日
+ * 制作日 : 2018年11月03日
  * 制作者：シスワントレサ
- * 内容　：全体のゲームを管理するクラス
+ * 内容　：シーンを切り替えるのエフェクト
  * ----------------------------------------------- */
 
 using System.Collections;
@@ -12,19 +12,24 @@ using UnityEngine.SceneManagement;
 
 public class SceneTransition : MonoBehaviour {
 
+    // シーンインデックス
     [SerializeField]
     private int sceneIndex;
+    // フェイドイン、フェイドアウトのエフェクト
     [SerializeField]
     private Animator panelFadeAnimator;
+    // ロードパネルUI
     [SerializeField]
     private GameObject NowLoadingPanel;
 
+    // レベルをロード
     public void LoadLevel()
     {
         //Enter();
         StartCoroutine(LoadFakeProgress());
     }
 
+    // Loadingアニメーションをプレイヤに見せるため
     IEnumerator LoadFakeProgress()
     {
         panelFadeAnimator.SetTrigger("End");
@@ -44,8 +49,9 @@ public class SceneTransition : MonoBehaviour {
         Enter();
     }
 
+    // シーンを切り替える
     public void Enter()
     {
         SceneManager.LoadScene("TheWorld");
     }
-}
+} // !_class

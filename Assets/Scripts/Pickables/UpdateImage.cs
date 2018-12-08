@@ -13,17 +13,19 @@ using UnityEngine.UI;
 [RequireComponent(typeof (Image))]
 public class UpdateImage : MonoBehaviour {
     
-    private Image image;
+    private Image image;            // イメージコンポネント
     [SerializeField]
-    private Sprite openImage;
+    private Sprite openImage;     // インベントリーが開いている
     [SerializeField]
-    private Sprite closedImage;
+    private Sprite closedImage;   // インベントリーが閉じられている
 
+    // 初期化
     private void Start()
     {
         image = gameObject.GetComponent<Image>();
     }
 
+    // インベントリーが開いているか閉じられているかに基づいて、鞄の画像を変更
     public void ChangeImage(bool isOpen)
     {
         if (isOpen)

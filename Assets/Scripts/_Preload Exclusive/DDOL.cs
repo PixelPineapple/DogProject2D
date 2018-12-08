@@ -16,4 +16,4 @@ public class DDOL : MonoBehaviour {
     {
         DontDestroyOnLoad(gameObject);
     }
-}
+}   // !_class

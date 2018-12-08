@@ -1,4 +1,14 @@
-﻿using System.Collections;
+﻿/*---------------------------------------------------
+ * 制作日 : 2018年11月10日
+ * 制作者：シスワントレサ
+ * 内容　：スプライトマスクのエフェクトを管理するクラス
+ * 最後の更新：2018年11月12日
+ * 
+ * !!!! もう使わない !!!!
+ * 
+ * ----------------------------------------------- */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,10 +25,11 @@ public class SMask : MonoBehaviour {
 
     public Transform target;
 
-	// Update is called once per frame
+    // 更新
 	void Update () {
         timer += Time.deltaTime;
         
+        // フリッカー「ランダムで大きく小さくにする」
         if (timer > flickTime)
         {
             if (isGoingBigger)

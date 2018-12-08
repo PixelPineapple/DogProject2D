@@ -1,7 +1,7 @@
 ﻿/*---------------------------------------------------
  * 制作日 : 2018年09月26日
  * 制作者：シスワントレサ
- * 内容　：光の大きさを管理するクラス
+ * 内容　：光の大きさや明るくさを管理するクラス
  * ----------------------------------------------- */
 
 using System.Collections;
@@ -10,9 +10,12 @@ using UnityEngine;
 
 public class LightIntensity : MonoBehaviour {
 
+    // 光の明るくさ
     [SerializeField]
     private float lampIntensity = 0;
+    // ライトゲームオブジェクトを参考する
     private Light thisLight;
+    // ライトの大きさ
     private float lightRange;
 
     // 初期化
@@ -33,4 +36,4 @@ public class LightIntensity : MonoBehaviour {
     {
         thisLight.range = Random.Range(lightRange - 0.07f, lightRange + 0.07f);
     }
-}
+} // !_class
